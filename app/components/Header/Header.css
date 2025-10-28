@@ -1,0 +1,79 @@
+header {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  z-index: 100;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  margin: 0 auto;
+  transition: box-shadow 0.3s ease;
+}
+.themebtn{
+  background-color: #a855f7;
+  color: var(--text-color);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #a855f7;
+}
+
+.cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon svg {
+  font-size: 26px;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 50%;
+  padding: 2px 5px;
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    padding: 14px 30px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
