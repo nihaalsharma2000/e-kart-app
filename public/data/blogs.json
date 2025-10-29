@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "image": "https://essential.oceanwp.org/wp-content/uploads/2017/02/Sans-titre-1_0005_shutterstock_1915964188.png",
+    "title": "Vestibulum sapin prin quam",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.",
+    "buttonText": "Learn More"
+  },
+  {
+    "id": 2,
+    "image": "https://essential.oceanwp.org/wp-content/uploads/2017/02/Sans-titre-1_0002_shutterstock_1932934118.png",
+    "title": "Cras mattis consectetur purus",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.",
+    "buttonText": "Learn More"
+  },
+  {
+    "id": 3,
+    "image": "https://essential.oceanwp.org/wp-content/uploads/2017/02/Sans-titre-1_0007_shutterstock_1857772774.png",
+    "title": "Nullam quis risus eget urna",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.",
+    "buttonText": "Learn More"
+  },
+  {
+    "id": 4,
+    "image": "https://essential.oceanwp.org/wp-content/uploads/2017/02/Sans-titre-1_0012_shutterstock_1798157746.png",
+    "title": "Etiam porta sem malesuada",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.",
+    "buttonText": "Learn More"
+  },
+  {
+    "id": 5,
+    "image": "https://essential.oceanwp.org/wp-content/uploads/2017/02/Sans-titre-1_0029_shutterstock_730978765.png",
+    "title": "Morbi leo risus, porta ac",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.",
+    "buttonText": "Learn More"
+  },
+  {
+    "id": 6,
+    "image": "https://essential.oceanwp.org/wp-content/uploads/2017/02/Sans-titre-1_0040_shutterstock_362623601.png",
+    "title": "Praesent commodo cursus magna",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.",
+    "buttonText": "Learn More"
+  }
+]

@@ -26,7 +26,10 @@ const cartSlice = createSlice({
       if (existing) {
         existing.quantity += 1;
       } else {
-        state.items.push({ ...item, quantity: 1 });
+        state.items.push({
+          ...item, quantity: 1,
+          cart:[]
+        });
       }
 
       localStorage.setItem("cartItems", JSON.stringify(state.items));

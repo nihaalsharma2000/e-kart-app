@@ -1,0 +1,49 @@
+.blog-wrapper {
+  padding: 30px;
+  text-align: center;
+  width: 90%;
+  margin: 20px auto;
+}
+.blogcard{
+    background-color: var(--bg-card-color);
+}
+.blog-heading {
+  font-size: 36px;
+  text-align: center;
+  color: var(--text-color);
+  margin: 20px 0;
+}
+
+.blogimage {
+  border-radius: 10px;
+  text-align: center;
+}
+.blog-content{
+    margin-top: 20px;
+    margin-right: 10px;
+    line-height: 2;
+}
+.blog-content p {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.slick-prev:before {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.slick-next:before {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.learnmorebtn{
+    color: var(--text-color);
+    text-decoration:underline;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 600;
+}
+.learnmorebtn:hover{
+    background-color: transparent;
+    color: var(--primary);
+}

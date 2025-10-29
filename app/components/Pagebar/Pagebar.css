@@ -1,0 +1,13 @@
+.pagebar-wrapper{
+    background-color: var(--bg-color);
+    padding: 30px 0;
+}
+.pagebar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pagebar-wrapper h1{
+    font-size: 36px;
+    font-weight: 400;
+}

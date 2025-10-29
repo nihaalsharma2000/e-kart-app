@@ -3,7 +3,6 @@
 import React from "react";
 import "./Promotion.css";
 import Image from "next/image";
-import { DriveFileMove } from "@mui/icons-material";
 
 const Promotion = () => {
   return (
@@ -19,8 +18,8 @@ const Promotion = () => {
       </div>
 
       <div className="hero-content-promotion container">
-        <div className="right-side-content"></div>
-        <div className="left-side-content">
+        <div className="left-side-content"></div>
+        <div className="right-side-content">
           <p className="hero-subtitle">Big summer promotion</p>
           <h1 className="hero-title">Best Oils you can find</h1>
           <p className="hero-text">

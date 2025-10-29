@@ -4,6 +4,8 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import Header from "./components/Header/Header";
+import Topbar from "./components/Header/Topbar";
+import Footer from "./components/Footer/Footer";
 
 export default function RootLayout({
   children,
@@ -15,8 +17,11 @@ export default function RootLayout({
       <body>
         <Provider store={store}>
           <ThemeProvider>
+            <Topbar/>
             <Header />
-            {children}</ThemeProvider>
+            {children}
+            <Footer/>
+            </ThemeProvider>
         </Provider>
       </body>
     </html>

@@ -4,11 +4,11 @@ import React, { useEffect, useState } from "react";
 import "./ProductGrid.css";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cartSlice";
+import { Product } from "../../types/cart";
 
 
 function ProductGrid() {
   const [products, setProducts] = useState([]);
- const [cart,setCart] = useState([])
   const dispatch = useDispatch()
   useEffect(() => {
     fetch("/data/product.json")
@@ -17,7 +17,7 @@ function ProductGrid() {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleAddCart = (product: never)=>{
+  const handleAddCart = (product:Product)=>{
     dispatch(addToCart(product))
   }
 
@@ -25,10 +25,10 @@ function ProductGrid() {
     <div className="product-grid container">
       <h4 className="product-title">Our Products</h4>
       <div className="products">
-        {products.map((product) => (
+        {products.map((product:Product) => (
           <div className="product-card" key={product.id}>
             <Image
-              src={product.image}
+              src={product.image || ""}
               height={250}
               width={250}
               alt="image"
