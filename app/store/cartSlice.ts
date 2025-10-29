@@ -1,39 +1,40 @@
 "use client";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface CartItem {
-  id: string | number;
-  name: string;
-  price: number;
-  image?: string;
-  quantity: number;
-  [key: string]: any;
-}
+import type { Product, CartItem } from "../types/cart";
 
-const initialState:{items:CartItem[]} = {items:[]};
+const loadItems = (): CartItem[] => {
+  if (typeof window !== "undefined") {
+    const saved = localStorage.getItem("cartItems");
+    return saved ? JSON.parse(saved) : [];
+  }
+  return [];
+};
+
+const initialState: { items: CartItem[] } = {
+  items: loadItems(),
+};
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<Omit<CartItem, "quantity">>) => {
+    addToCart: (state, action: PayloadAction<Product>) => {
       const item = action.payload;
-      const existingItem = state.items.find((cartItem) => cartItem.id === item.id);
+      const existing = state.items.find((cartItem) => cartItem.id === item.id);
 
-      if (existingItem) {
-        existingItem.quantity++;
+      if (existing) {
+        existing.quantity += 1;
       } else {
-        state.items.push({
-          ...item, quantity: 1,
-          id: "",
-          name: "",
-          price: 0
-        });
+        state.items.push({ ...item, quantity: 1 });
       }
+
+      localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
 
     removeFromCart: (state, action: PayloadAction<string | number>) => {
-      return state.items.filter((cartItem) => cartItem.id !== action.payload);
+      state.items = state.items.filter((cartItem) => cartItem.id !== action.payload);
+      localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
 
     updateQuantity: (
@@ -41,15 +42,17 @@ const cartSlice = createSlice({
       action: PayloadAction<{ id: string | number; quantity: number }>
     ) => {
       const { id, quantity } = action.payload;
-      const existingItem = state.items.find((item) => item.id === id);
+      const item = state.items.find((cartItem) => cartItem.id === id);
 
-      if (existingItem) {
-        existingItem.quantity = quantity;
+      if (item) {
+        item.quantity = quantity;
+        localStorage.setItem("cartItems", JSON.stringify(state.items));
       }
     },
 
-    clearCart: () => {
-      return [];
+    clearCart: (state) => {
+      state.items = [];
+      localStorage.removeItem("cartItems");
     },
   },
 });

@@ -17,18 +17,7 @@ function ProductGrid() {
       .catch((err) => console.log(err));
   }, []);
 
-  useEffect(()=>{
-    const storedCart = localStorage.getItem('cart')
-    if(storedCart) {
-      setCart(JSON.parse(storedCart))
-    }
-  },[])
-
-   useEffect(()=>{
-    localStorage.setItem('cart',JSON.stringify(cart))
-  },[cart])
-
-  const handleAddCart = (product)=>{
+  const handleAddCart = (product: never)=>{
     dispatch(addToCart(product))
   }
 
@@ -45,7 +34,7 @@ function ProductGrid() {
               alt="image"
               unoptimized
             />
-            <button className="addbtn" onClick={()=>handleAddCart(product)} >Add to Cart</button>
+            <button onClick={()=>handleAddCart(product)} >Add to Cart</button>
             <div className="product-text">
               <p className="product-category">{product.category}</p>
               <h6 className="product-name">{product.name}</h6>

@@ -1,7 +1,7 @@
 
 
 :root {
-  --primary: #1976d2;
+  --primary: #a164f1;
   --primary-hover: #125ca1;
   --font-sans: 'Inter', Arial, sans-serif;
 }
@@ -40,7 +40,7 @@ body {
 
 button,
 .btn {
-  padding: 12px 24px;
+  padding: 8px 10px;
   background-color: var(--primary);
   color: white;
   border: none;
