@@ -49,3 +49,23 @@
     font-size: 12px;
   }
 }
+@media (max-width: 428px) {
+  .topbar {
+    font-size: 10px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .topbar-left {
+    margin-bottom: 6px;
+    display: none;
+  }
+
+  .topbar-left a {
+    margin-right: 5px;
+  }
+
+  .topbar-right p {
+    font-size: 12px;
+  }
+}

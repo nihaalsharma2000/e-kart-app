@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import Image from "next/image";
 import './Blog.css'
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-import { BlogPost } from "../../types/blog";
+import { BlogPost } from "../../types/type";
 
 function Blog() {
   const [blogs, setBlogs] = useState([]);

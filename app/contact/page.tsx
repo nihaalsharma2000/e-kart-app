@@ -6,7 +6,7 @@ import "./page.css";
 function page() {
   return (
     <div>
-      <Pagebar pagename="Contact" />
+      <Pagebar />
       <div className="contact-wrapper container">
         <div className="contact-image">
           <Image src={"/map.jpg"} alt="map" height={600} width={560} />

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, updateQuantity, clearCart } from "../store/cartSlice";
 import "./Cart.css";
+import Pagebar from "../components/Pagebar/Pagebar";
 
 const CartPage = () => {
   const router = useRouter();
@@ -40,6 +41,7 @@ const CartPage = () => {
 
   return (
     <div className="cart-page container">
+      <Pagebar/>
       <div className="cart-header">
         <h2>Your Cart</h2>
         <button onClick={() => router.push("/")}>Back to Home</button>

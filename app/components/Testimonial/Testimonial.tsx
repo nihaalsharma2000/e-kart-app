@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Review } from "../../types/review";
+import { Review } from "../../types/type";
 import Image from "next/image";
 import './Testimonila.css'
 import { FormatQuote, KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";

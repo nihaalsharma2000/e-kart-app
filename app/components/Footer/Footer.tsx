@@ -1,3 +1,4 @@
+"use client"
 import {
   AccessTime,
   AdjustOutlined,
@@ -7,20 +8,26 @@ import {
   PushPin,
 } from "@mui/icons-material";
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 import "./Footer.css";
+import ThemeContext from "../../context/ThemeContext";
+import { useRouter } from "next/navigation";
+
 function Footer() {
+  const { theme, toggleTheme } = useContext(ThemeContext)!;
+  const router = useRouter()
   return (
     <>
       <div className="footer-wrapper container">
         <div className="left-side-content-ftr">
           <div className="footerlogo">
             <Image
-              src={"/elogo.png"}
+              src={theme === "dark" ? "/elogo-white.png" : "/elogo.png"}
               height={30}
               width={170}
               unoptimized
               alt="footerlogo"
+              onClick={()=>{router.push('/')}}
             />
             <p>
               Pellentesque id rhoncus augue nec maximus enim nunc commodo purus

@@ -18,8 +18,8 @@ const Promotion = () => {
       </div>
 
       <div className="hero-content-promotion container">
-        <div className="left-side-content"></div>
-        <div className="right-side-content">
+        <div className="left-side-content-promotion"></div>
+        <div className="right-side-content-promotion">
           <p className="hero-subtitle">Big summer promotion</p>
           <h1 className="hero-title">Best Oils you can find</h1>
           <p className="hero-text">

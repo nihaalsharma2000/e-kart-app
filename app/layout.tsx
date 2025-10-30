@@ -6,6 +6,7 @@ import store from "./store/store";
 import Header from "./components/Header/Header";
 import Topbar from "./components/Header/Topbar";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 export default function RootLayout({
   children,
@@ -20,6 +21,7 @@ export default function RootLayout({
             <Topbar/>
             <Header />
             {children}
+            <ScrollToTop/>
             <Footer/>
             </ThemeProvider>
         </Provider>

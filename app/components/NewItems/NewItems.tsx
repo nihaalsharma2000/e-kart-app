@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './NewItems.css'
 import { useDispatch } from 'react-redux';
-import { Product } from '../../types/cart';
+import { Product } from '../../types/type';
 import { addToCart } from '../../store/cartSlice';
 import Image from 'next/image';
 function NewItems() {

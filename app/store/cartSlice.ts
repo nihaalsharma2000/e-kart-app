@@ -1,7 +1,7 @@
 "use client";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import type { Product, CartItem } from "../types/cart";
+import type { Product, CartItem } from "../types/type";
 
 const loadItems = (): CartItem[] => {
   if (typeof window !== "undefined") {
