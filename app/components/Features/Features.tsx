@@ -2,7 +2,6 @@ import {
     CreditCardOutlined,
   DiscountOutlined,
   HeadsetMicOutlined,
-  LocalShipping,
   LocalShippingOutlined,
   PaidOutlined,
 } from "@mui/icons-material";

@@ -7,13 +7,18 @@ import { Review } from "../../types/type";
 import Image from "next/image";
 import './Testimonila.css'
 import { FormatQuote, KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import useFetch from "../../customHooks/useFetch";
 function Testimonial() {
   const [reviews, setReviews] = useState([]);
-  useEffect(() => {
-    fetch("/data/reviews.json")
-      .then((res) => res.json())
-      .then((data) => setReviews(data));
-  }, []);
+
+    const { fetchData } = useFetch();
+    useEffect(() => {
+      const resdata = async () => {
+        const data = await fetchData("/data/reviews.json");
+        setReviews(data);
+      };
+      resdata();
+    }, [fetchData]);
 
   const settings = {
     infinite: true,

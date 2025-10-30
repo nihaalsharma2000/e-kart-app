@@ -5,7 +5,6 @@ import ProductGrid from "../components/ProductGrid/ProductGrid";
 const page = () => {
   return (
     <div>
-      <Pagebar />
       <ProductGrid/>
     </div>
   );

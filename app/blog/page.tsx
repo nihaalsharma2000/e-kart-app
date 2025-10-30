@@ -1,24 +1,28 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import React, { useEffect, useState } from "react";
-import Pagebar from "../components/Pagebar/Pagebar";
 import "./blog.css";
 import Image from "next/image";
 import { BlogPost } from "../types/type";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import useFetch from "../customHooks/useFetch";
 
 function page() {
   const router = useRouter()
   const [blogs, setBlogs] = useState([]);
-  useEffect(() => {
-    fetch("/data/blogs.json")
-      .then((res) => res.json())
-      .then((data) => setBlogs(data));
-  }, []);
+
+    const { fetchData } = useFetch();
+    useEffect(() => {
+      const resdata = async () => {
+        const data = await fetchData("/data/blogs.json");
+        setBlogs(data);
+      };
+      resdata();
+    }, [fetchData]);
+  
   return (
     <div>
-      <Pagebar />
       <div className="blogpage-wrapper container">
         {blogs.map((blog: BlogPost) => (
           <div className="blogpage-card" key={blog.id}>

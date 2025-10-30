@@ -8,10 +8,8 @@ import { addToCart } from "../../store/cartSlice";
 import "./singleProduct.css";
 import { Product } from "../../types/type";
 import Link from "next/link";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Typography from "@mui/material/Typography";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Pagebar from "../../components/Pagebar/Pagebar";
+import useFetch from "../../customHooks/useFetch";
 
 export default function SingleProductPage() {
   const { id } = useParams();
@@ -30,11 +28,27 @@ export default function SingleProductPage() {
           const rel = data.filter(
             (p) => p.category === found.category && p.id !== found.id
           );
-          setRelated(rel.slice(0, 4)); // limit to 4
+          setRelated(rel.slice(0, 4)); 
         }
       })
       .catch((err) => console.error(err));
   }, [id]);
+
+  
+    // const { fetchData } = useFetch();
+    // useEffect(() => {
+    //   const resdata = async () => {
+    //     const data = await fetchData("/data/blogs.json");
+    //     const current = data.find((item: BlogPost) => String(item.id) === id);
+    //     setBlog(current);
+    //     const related = data
+    //       .filter((item: BlogPost) => String(item.id) !== id)
+    //       .slice(0, 3);
+    //     setRelatedBlogs(related);
+    //   };
+    //   resdata();
+    // }, [id, fetchData]);
+  
 
   const handleAddToCart = () => {
     if (product) {
@@ -46,7 +60,7 @@ export default function SingleProductPage() {
 
   return (
     <div className="single-product container">
-      <Pagebar />
+      
       <div className="product-wrapper">
         <div className="product-left">
           <Image

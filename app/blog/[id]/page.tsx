@@ -1,31 +1,30 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import Pagebar from "../../components/Pagebar/Pagebar";
 import Image from "next/image";
 import Link from "next/link";
 import { BlogPost } from "../../types/type";
 import "./singleBlog.css";
+import useFetch from "../../customHooks/useFetch";
 
 export default function SingleBlogPage() {
   const { id } = useParams();
   const [blog, setBlog] = useState<BlogPost | null>(null);
   const [relatedBlogs, setRelatedBlogs] = useState<BlogPost[]>([]);
 
+  const { fetchData } = useFetch();
   useEffect(() => {
-    fetch("/data/blogs.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const current = data.find((item: BlogPost) => String(item.id) === id);
-        setBlog(current);
-
-        // Get related blogs (excluding current one)
-        const related = data
-          .filter((item: BlogPost) => String(item.id) !== id)
-          .slice(0, 3); // Show 3 related
-        setRelatedBlogs(related);
-      });
-  }, [id]);
+    const resdata = async () => {
+      const data = await fetchData("/data/blogs.json");
+      const current = data.find((item: BlogPost) => String(item.id) === id);
+      setBlog(current);
+      const related = data
+        .filter((item: BlogPost) => String(item.id) !== id)
+        .slice(0, 3);
+      setRelatedBlogs(related);
+    };
+    resdata();
+  }, [id, fetchData]);
 
   if (!blog) {
     return (
@@ -37,7 +36,6 @@ export default function SingleBlogPage() {
 
   return (
     <div>
-      <Pagebar />
       <div className="single-blog container">
         <div className="single-blog-image">
           <Image

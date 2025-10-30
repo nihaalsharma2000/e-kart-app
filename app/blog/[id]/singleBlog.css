@@ -1,4 +1,4 @@
-/* --- Single Blog Layout --- */
+
 .single-blog {
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@
   margin-bottom: 15px;
 }
 
-/* --- Related Blogs --- */
+
 .related-blogs {
   margin-top: 60px;
 }

@@ -5,26 +5,28 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Image from "next/image";
 import './Blog.css'
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { BlogPost } from "../../types/type";
+import useFetch from "../../customHooks/useFetch";
 
 function Blog() {
   const [blogs, setBlogs] = useState([]);
-  useEffect(() => {
-    fetch("/data/blogs.json")
-      .then((res) => res.json())
-      .then((data) => setBlogs(data));
-  }, []);
+
+    const { fetchData } = useFetch();
+    useEffect(() => {
+      const resdata = async () => {
+        const data = await fetchData("/data/blogs.json");
+        setBlogs(data);
+      };
+      resdata();
+    }, [fetchData]);
 
   const settings = {
-    infinite: false,
+    infinite: true,
     dots:true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: true,
-    prevArrows:<KeyboardArrowLeft />,
-    nextArrows:<KeyboardArrowRight/>,
     responsive: [
     {
       breakpoint: 768,
@@ -51,7 +53,7 @@ function Blog() {
         <Slider {...settings}>
           {blogs.map((blog:BlogPost) => (
             <div className="blogcard" key={blog.id}>
-                <Image src={blog.image} height={240} width={400} alt="dummy" unoptimized className="blogimage"/>
+                <Image src={blog.image} height={240} width={350} alt="dummy" unoptimized className="blogimage"/>
                 <div className="blog-content">
                 <h4>{blog.title}</h4>
                 <p>{blog.description}</p>

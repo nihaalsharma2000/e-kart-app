@@ -36,13 +36,13 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Image wrapper */
+
 .product-image {
   position: relative;
   overflow: hidden;
 }
 
-/* Hide the Add to Cart button initially */
+
 .addbtn {
   position: absolute;
   bottom: -50px;
@@ -59,13 +59,11 @@
   opacity: 0;
 }
 
-/* Reveal button on hover */
 .product-card:hover .addbtn {
   bottom: 2px;
   opacity: 1;
 }
 
-/* Product details */
 .product-text {
   margin-top: 12px;
 }

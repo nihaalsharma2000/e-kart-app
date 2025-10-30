@@ -1,12 +1,10 @@
 import React from "react";
-import Pagebar from "../components/Pagebar/Pagebar";
 import Image from "next/image";
 import { Facebook, Instagram, Twitter, YouTube } from "@mui/icons-material";
 import "./page.css";
 function page() {
   return (
     <div>
-      <Pagebar />
       <div className="contact-wrapper container">
         <div className="contact-image">
           <Image src={"/map.jpg"} alt="map" height={600} width={560} />

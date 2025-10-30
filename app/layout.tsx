@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import Topbar from "./components/Header/Topbar";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import Pagebar from "./components/Pagebar/Pagebar";
 
 export default function RootLayout({
   children,
@@ -20,6 +21,7 @@ export default function RootLayout({
           <ThemeProvider>
             <Topbar/>
             <Header />
+            <Pagebar/>
             {children}
             <ScrollToTop/>
             <Footer/>

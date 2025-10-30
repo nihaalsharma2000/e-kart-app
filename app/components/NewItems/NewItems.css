@@ -21,13 +21,32 @@
   border: 1px solid rgba(0,0,0,0.08);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  position: relative;
 }
-.addbtn{
-  background-color: #a855f7;
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.addbtn:hover {
+.addbtn {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #a855f7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.product-card:hover .addbtn {
+  bottom: 2px;
+  opacity: 1;
 }
 
 .product-card img,

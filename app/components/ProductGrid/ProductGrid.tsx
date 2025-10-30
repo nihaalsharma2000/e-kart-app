@@ -6,21 +6,24 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cartSlice";
 import { Product } from "../../types/type";
 import { useRouter } from "next/navigation";
+import useFetch from "../../customHooks/useFetch";
 
 function ProductGrid() {
   const [products, setProducts] = useState<Product[]>([]);
   const dispatch = useDispatch();
   const router = useRouter();
 
+  const { fetchData } = useFetch();
   useEffect(() => {
-    fetch("/data/product.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((err) => console.log(err));
-  }, []);
+    const resdata = async () => {
+      const data = await fetchData("/data/product.json");
+      setProducts(data);
+    };
+    resdata();
+  }, [fetchData]);
 
   const handleAddCart = (e: React.MouseEvent, product: Product) => {
-    e.stopPropagation(); 
+    e.stopPropagation();
     dispatch(addToCart(product));
   };
 

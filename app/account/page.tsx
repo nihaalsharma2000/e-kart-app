@@ -9,7 +9,6 @@ const AccountPage = () => {
 
   return (
     <>
-      <Pagebar/>
       <div className="login-page">
       <h1 className="login-title">Login</h1>
 

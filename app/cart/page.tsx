@@ -41,7 +41,6 @@ const CartPage = () => {
 
   return (
     <div className="cart-page container">
-      <Pagebar/>
       <div className="cart-header">
         <h2>Your Cart</h2>
         <button onClick={() => router.push("/")}>Back to Home</button>
