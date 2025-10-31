@@ -1,0 +1,83 @@
+.container {
+  padding: 2rem;
+  background-color: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+.addBtn {
+  background-color: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.addBtn:hover {
+  background-color: #1d4ed8;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+  color: #374151;
+}
+
+.editBtn,
+.deleteBtn {
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.editBtn {
+  background-color: #10b981;
+  color: white;
+}
+
+.editBtn:hover {
+  background-color: #059669;
+}
+
+.deleteBtn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.deleteBtn:hover {
+  background-color: #dc2626;
+}

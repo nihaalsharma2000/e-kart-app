@@ -1,0 +1,124 @@
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 4rem 0;
+}
+
+.contact-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: var(--shadow-light);
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.contact-info .contact h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.contact-info .contact p,
+.contact-info .contact pre {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.social .icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 0.5rem;
+}
+
+.social .icons svg {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social .icons svg:hover {
+  color: var(--primary);
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: transparent;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--text-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgb(95, 95, 95);
+  outline: none;
+}
+
+.contact-form textarea {
+  grid-column: span 2;
+  resize: none;
+  min-height: 120px;
+}
+
+.contact-form button {
+  grid-column: span 1;
+  background-color: var(--primary);
+  color: var(--text-color);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.contact-form button:hover {
+  background-color: var(--primary);
+}
+
+
+@media (max-width: 900px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form textarea,
+  .contact-form button {
+    grid-column: 1;
+  }
+}

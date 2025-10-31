@@ -1,0 +1,33 @@
+.pagebar-wrapper {
+  background-color: var(--bg-card-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 20px 0;
+}
+
+.pagebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-heading {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-color);
+  text-transform: capitalize;
+}
+
+.breadcrumb-container {
+  font-size: 14px;
+}
+
+.breadcrumb-container a:hover {
+  color: #a855f7;
+}
+
+@media (max-width: 768px) {
+  .pagebar {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
