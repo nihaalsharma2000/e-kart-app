@@ -1,9 +1,23 @@
-import React from 'react'
+"use client";
+import styles from "./AdminNavbar.module.css";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
-const AdminNavbar = () => {
+type AdminNavbarProps = {
+  toggleSidebar: () => void;
+  isSidebarOpen: boolean;
+};
+
+export default function AdminNavbar({
+  toggleSidebar,
+  isSidebarOpen,
+}: AdminNavbarProps) {
   return (
-    <div>AdminNavbar</div>
-  )
+    <header className={styles.navbar}>
+      <button onClick={toggleSidebar} className={styles.menuButton}>
+        {isSidebarOpen ? <CloseIcon /> : <MenuIcon />}
+      </button>
+      <h1 className={styles.title}>Admin Panel</h1>
+    </header>
+  );
 }
-
-export default AdminNavbar

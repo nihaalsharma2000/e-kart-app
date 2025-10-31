@@ -1,0 +1,57 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: #555;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.link:hover {
+  background-color: #f3f3f3;
+}
+
+.active {
+  background-color: #0070f3;
+  color: #fff;
+}
+
+.closed {
+  transform: translateX(-100%);
+}
+
+.open {
+  transform: translateX(0);
+}
+
+/* Desktop default open */
+@media (min-width: 769px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+}
