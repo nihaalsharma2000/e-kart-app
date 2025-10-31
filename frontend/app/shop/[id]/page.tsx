@@ -58,7 +58,7 @@ export default function SingleProductPage() {
       <div className="product-wrapper">
         <div className="product-left">
           <Image
-            src={product.product_image || ""}
+             src={`http://localhost:5001${product.product_image}`}
             alt={product.product_name}
             width={400}
             height={400}

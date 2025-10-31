@@ -31,7 +31,7 @@ function Pagebar() {
       {pageName !== "Home" ? (
         <div className="pagebar-wrapper">
         <div className="container pagebar">
-          <h1 className="page-heading">{pageName}</h1>
+          {/* <h1 className="page-heading">{pageName}</h1> */}
 
           <div className="breadcrumb-container">
             <Breadcrumbs

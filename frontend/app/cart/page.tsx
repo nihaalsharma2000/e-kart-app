@@ -12,7 +12,7 @@ const CartPage = () => {
   const dispatch = useDispatch();
 
   const cartItems = useSelector((state: any) => state.cart.items);
-
+  console.log(cartItems)
   const handleQuantityChange = (id: string | number, increment: boolean) => {
     dispatch(
       updateQuantity({
@@ -47,12 +47,12 @@ const CartPage = () => {
       </div>
 
       {cartItems.map((item) => (
-        <div className="cart-item" key={item.id}>
-          <Image src={item.image} alt={item.name} width={80} height={80} unoptimized />
+        <div className="cart-item" key={item._id}>
+          <Image src={`http://localhost:5001${item.product_image}`} alt={item.name} width={80} height={80} unoptimized />
 
           <div className="cart-item-info">
-            <h4>{item.name}</h4>
-            <p>${item.price}</p>
+            <h4>{item.product_name}</h4>
+            <p>${item.product_price}</p>
 
             <div className="quantity-controls">
               <button onClick={() => handleQuantityChange(item.id, false)}>-</button>

@@ -41,7 +41,7 @@ function NewItems() {
           >
             <div className="product-image">
               <Image
-                src = {product.product_image || "product-image"}
+                src={`http://localhost:5001${product.product_image}`}
                 height={250}
                 width={250}
                 alt="image"
@@ -55,7 +55,7 @@ function NewItems() {
               <p className="product-category">{product.product_category}</p>
               <h6 className="product-name">{product.product_name}</h6>
               <h5 className="price">{product.product_price}</h5>
-              <p className="rating">{product.product_rating}</p>
+              <p className="rating">{product.product_rating} / 5</p>
             </div>
           </div>
         ))}

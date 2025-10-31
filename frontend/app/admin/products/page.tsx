@@ -1,14 +1,28 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
-import { useState } from "react";
+import axios from "axios";
+
+interface Product {
+  _id: string;
+  product_name: string;
+  product_price: number;
+  product_category: string;
+  product_rating: number;
+  product_image: string;
+}
 
 export default function ProductsPage() {
-  const [products, setProducts] = useState([
-    { id: 1, name: "Wireless Mouse", price: 29.99, category: "oil", rating: 4.5 },
-    { id: 2, name: "Mechanical Keyboard", price: 89.99, category: "oil", rating: 4.5 },
-    { id: 3, name: "Gaming Headset", price: 49.99, category: "oil", rating: 4.5 },
-  ]);
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5001/api/product")
+      .then(res => setProducts(res.data))
+      .catch(err => console.error("Error fetching products:", err));
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -24,31 +38,30 @@ export default function ProductsPage() {
           <thead>
             <tr>
               <th>#</th>
+              <th>Image</th>
               <th>Product Name</th>
+              <th>Category</th>
               <th>Price ($)</th>
-              <th>Stock</th>
-              <th>Actions</th>
+              <th>Rating</th>
             </tr>
           </thead>
           <tbody>
             {products.map((p, i) => (
-              <tr key={p.id}>
+              <tr key={p._id}>
                 <td>{i + 1}</td>
-                <td>{p.name}</td>
-                <td>{p.price}</td>
-                <td>{p.category}</td>
-                <td>{p.rating}</td>
                 <td>
-                  <Link href={`/admin/products/${p.id}/edit`} className={styles.editBtn}>
-                    Edit
-                  </Link>
-                  <button
-                    className={styles.deleteBtn}
-                    onClick={() => setProducts(products.filter((x) => x.id !== p.id))}
-                  >
-                    Delete
-                  </button>
+                  <img
+                    src={`http://localhost:5001${p.product_image}`}
+                    alt={p.product_name}
+                    width={60}
+                    height={60}
+                    style={{ borderRadius: "6px", objectFit: "cover" }}
+                  />
                 </td>
+                <td>{p.product_name}</td>
+                <td>{p.product_category}</td>
+                <td>{p.product_price}</td>
+                <td>{p.product_rating}</td>
               </tr>
             ))}
           </tbody>

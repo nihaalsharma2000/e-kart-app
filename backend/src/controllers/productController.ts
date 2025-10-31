@@ -35,23 +35,29 @@ export const createProduct = async (req: Request, res: Response) => {
       product_rating,
       product_description,
     } = req.body;
+
+    const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+
     const product = await Product.create({
       product_name,
       product_category,
       product_price,
       product_rating,
       product_description,
+      product_image: imagePath,
     });
-    product.save();
-    res.status(201).json({ msg: "product created successfully" });
+
+    res.status(201).json({
+      success: true,
+      message: "Product created successfully",
+      product,
+    });
   } catch (error) {
     console.error("Error creating product:", error);
-    res
-      .status(500)
-      .json({ success: false, message: "Failed to create product." });
-    process.exit(1);
+    res.status(500).json({ success: false, message: "Failed to create product." });
   }
 };
+
 export const updateProduct = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
