@@ -1,6 +1,6 @@
 // src/controllers/blogController.ts
 import { Request, Response } from "express";
-import Blog from "../model/blog";
+import Blog from "../models/blog";
 
 export const getAllBlog = async (_req: Request, res: Response) => {
   try {

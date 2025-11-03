@@ -5,7 +5,7 @@ import path from "path";
 import connectDB from "./config/db";
 import ProductRoute from "./routes/productRoute";
 import BlogRoute from "./routes/blogRoutes";
-
+import AuthRoute from "./routes/authRoutes"
 dotenv.config();
 connectDB();
 const app = express();
@@ -18,6 +18,7 @@ app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 app.use("/api", ProductRoute);
 app.use("/api", BlogRoute);
+app.use("/api/auth", AuthRoute);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

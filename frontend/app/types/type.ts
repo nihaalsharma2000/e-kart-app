@@ -1,10 +1,11 @@
 export interface BlogPost {
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-  buttonText: string;
+  _id: string;
+  blog_title: string;
+  blog_author: string;
+  blog_image: string;
+  blog_description: string;
 }
+
 export interface Review {
   id: number;
   reviewText: string;
@@ -19,12 +20,12 @@ export interface Product {
   product_price: number;
   product_image?: string | null;
   product_category?: string;
-  quantity?:number;
+  quantity?: number;
   product_rating?: number;
-  product_description:string;
+  product_description: string;
 }
 
 export interface CartItem extends Product {
   quantity: number;
-  cart:[] 
+  cart?: [];
 }

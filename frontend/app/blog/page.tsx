@@ -5,10 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import api from "@/customHooks/useAxios";
+import { BlogPost } from "@/types/type";
 
 function BlogPage() {
   const router = useRouter();
-  const [blogs, setBlogs] = useState([]);
+const [blogs, setBlogs] = useState<BlogPost[]>([]);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -17,7 +18,7 @@ function BlogPage() {
     };
     fetchBlogs();
   }, []);
-  console.log(blogs)
+  console.log(blogs);
   return (
     <div className="blogpage-wrapper container">
       {blogs.map((blog) => (

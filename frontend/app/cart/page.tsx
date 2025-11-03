@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, updateQuantity, clearCart } from "../store/cartSlice";
 import "./Cart.css";
-import Pagebar from "../components/Pagebar/Pagebar";
 
 const CartPage = () => {
   const router = useRouter();
