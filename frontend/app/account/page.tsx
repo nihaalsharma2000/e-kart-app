@@ -21,7 +21,7 @@ const AccountPage = () => {
 
       const res = await api.post(endpoint, payload);
       const data = res.data;
-
+      console.log(data)
       if (data.token) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", data.user.role);

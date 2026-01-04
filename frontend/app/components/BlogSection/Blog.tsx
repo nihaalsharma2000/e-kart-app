@@ -6,19 +6,26 @@ import Slider from "react-slick";
 import Image from "next/image";
 import './Blog.css'
 import { BlogPost } from "../../types/type";
-import useFetch from "../../customHooks/useFetch";
+import api from "@/customHooks/useAxios";
 
 function Blog() {
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-    const { fetchData } = useFetch();
-    useEffect(() => {
-      const resdata = async () => {
-        const data = await fetchData("/data/blogs.json");
-        setBlogs(data);
-      };
-      resdata();
-    }, [fetchData]);
+  useEffect(() => {
+    const resdata = async () => {
+      try {
+        const resp = await api.get<BlogPost[]>("/api/blog");
+        setBlogs(resp.data || []);
+      } catch (err: any) {
+        setError(err?.message ?? "Failed to load blogs");
+      } finally {
+        setLoading(false);
+      }
+    };
+    resdata();
+  }, []);
 
   const settings = {
     infinite: true,
@@ -49,15 +56,17 @@ function Blog() {
       <div>
         <h1 className="blog-heading">News from the blog</h1>
       </div>
+      {loading ? <p>Loading...</p> : null}
+      {error ? <p style={{color:'red'}}>{error}</p> : null}
       <div className="carousel-wrapper">
         <Slider {...settings}>
           {blogs.map((blog:BlogPost) => (
-            <div className="blogcard" key={blog.id}>
-                <Image src={blog.image} height={240} width={350} alt="dummy" unoptimized className="blogimage"/>
+            <div className="blogcard" key={blog._id}>
+                <Image src={`http://localhost:5001${blog.blog_image}`} height={240} width={350} alt="dummy" unoptimized className="blogimage"/>
                 <div className="blog-content">
-                <h4>{blog.title}</h4>
-                <p>{blog.description}</p>
-                <button className="learnmorebtn">{blog.buttonText}</button>
+                <h4>{blog.blog_title}</h4>
+                <p>{blog.blog_description}</p>
+                <button className="learnmorebtn">Learn More</button>
                 </div>
               </div>
           ))}

@@ -13,7 +13,7 @@ const [blogs, setBlogs] = useState<BlogPost[]>([]);
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const res = await api.get("/api/blogs");
+      const res = await api.get("/api/blog");
       setBlogs(res.data || []);
     };
     fetchBlogs();
@@ -26,7 +26,7 @@ const [blogs, setBlogs] = useState<BlogPost[]>([]);
           <div className="blogpageimage">
             <Link href={`/blog/${blog._id}`}>
               <Image
-                src={`http://localhost:5000${blog.blog_image}`}
+                src={`http://localhost:5001${blog.blog_image}`}
                 height={300}
                 width={480}
                 alt={blog.blog_title}
